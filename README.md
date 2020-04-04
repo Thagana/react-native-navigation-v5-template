@@ -4,15 +4,15 @@
 Follow the instruction properly, so that the app/project will run correctly
 
 ## Check before proceeding
-[x] [Download Androind Studio](https://developer.android.com/studio)
-[x] [Download Node.js](https://nodejs.org/en/download/)
-[x] [Download VS Code](https://code.visualstudio.com/download) or [Sublime Text 3](https://www.sublimetext.com/3)
-[x] [Download git cli](https://developer.android.com/studio)
-[x] Download Home Brew for mac
+- [x] [Download Androind Studio](https://developer.android.com/studio)
+- [x] [Download Node.js](https://nodejs.org/en/download/)
+- [x] [Download VS Code](https://code.visualstudio.com/download) or [Sublime Text 3](https://www.sublimetext.com/3)
+- [x] [Download git cli](https://developer.android.com/studio)
+- [x] Download Home Brew for mac
 ```bash
 	$ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 ```
-[x] Download Cocopods for mac
+- [x] Download Cocopods for mac
 ```bash
 	$ sudo gem install cocoapods
 ```
