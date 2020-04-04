@@ -4,7 +4,7 @@
 Follow the instruction properly, so that the app/project will run correctly
 
 ## Check before proceeding
-- [x] [Download Androind Studio](https://developer.android.com/studio)
+- [ ] [Download Androind Studio](https://developer.android.com/studio)
 - [x] [Download Node.js](https://nodejs.org/en/download/)
 - [x] [Download VS Code](https://code.visualstudio.com/download) or [Sublime Text 3](https://www.sublimetext.com/3)
 - [x] [Download git cli](https://developer.android.com/studio)
