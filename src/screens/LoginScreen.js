@@ -2,11 +2,12 @@ import React, { useState, useEffect } from 'react'
 import { View, Text } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import { useNavigation } from '@react-navigation/native';
+import { useStoreState, useStoreActions } from 'easy-peasy';
 
 const LoginScreen = (props) => {
-    console.log(props)
-    console.log(props)
-    const [isloggedin, setIsloaggedin] = useState(false);
+    const isloggedin = useStoreState(state => state.isLoggedin);
+    const loggin = useStoreActions(action => action.loggin)
+    
     // const navigation = useNavigation();
     const checkToken = async () => {
         try{
@@ -36,8 +37,7 @@ const LoginScreen = (props) => {
                     margin: 6
                 }}
                 onPress={() => {
-                    checkToken();
-                    props.navigation.push("Dashboard");
+                    loggin()
                 }}
             >
                 <Text style={{
