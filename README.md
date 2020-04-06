@@ -40,3 +40,51 @@ Follow the instruction properly, so that the app/project will run correctly
 ```bash
 	$ npx react-native run-android
 ```
+## Navigation Tree Structure
+
++ -- Root Navigation( Naviagtion Container)
+|
++ -- RootStackNavigator (2)
+|
++ --- *AuthenticationStack* || *Dashboard* -- Dependiang on authentication global state
+|
++ - AuthenticationStack (3)
+|
++ ----- *Authentication* && *SignIn* && *SignOut* --- Either One.
+|
++ ------- Authentication (Screen) 
+|
++ ------- SignIn (Screen)
+|
++ ------- SignOut (Screen)
+|
+|
++ - Dashboard (2)
+|
++ ----- *TabStack* && Profile \ Drawer Navigator (burger menu)
+|
++ ------ TabStack (Tab Navigator) (3)
+|
++ ------- *FeedStack* (StackNavigator) (2)
+|
++ -------- Feed (Screen)
+|
++ -------- Details (Screen)
+|
++ ------- *SettingsStack* (StackNavigator) (1)
+|
++ --------- Settings (Screen)
+|
++ -------- Profile (Screen)
+
+### Libraries used
+- [react-native-vectoricons](https://github.com/oblador/react-native-vector-icons)
+- [react-navigation](https://reactnavigation.org/docs/getting-started)
+- [easy-peasy](https://easy-peasy.now.sh/)
+
+### Extra Reading
+- [allinonehomeschool](https://allinonehomeschool.com/easy-peasy-getting-started-videos/)
+- [allinonehomeschool](https://allinonehomeschool.com/getting-ready-1/)
+- [reactnavigation](https://reactnavigation.org/docs/hello-react-navigation)
+- [Tabs](https://reactnavigation.org/docs/tab-based-navigation)
+- [Drawer](https://reactnavigation.org/docs/drawer-based-navigation)
