@@ -2,7 +2,7 @@
 import 'react-native-gesture-handler';
 import React, { useState, useEffect } from 'react';
 import {
-  StatusBar, Settings,
+  StatusBar, Settings, TouchableOpacity
 } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -11,6 +11,7 @@ import AsyncStorage from '@react-native-community/async-storage';
 import { createStore, StoreProvider, useStoreState, useStoreActions } from 'easy-peasy';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import Ionicons from 'react-native-vector-icons/Ionicons'
 
 /** Screens */
 import WelcomeScreen from './src/screens/WelcomeScreen';
@@ -26,13 +27,64 @@ import DetailsScreen from './src/screens/DetailsScreen';
 import STORE from './src/Store/model';
 const store = createStore(STORE);
 
+const SettingStack = createStackNavigator();
+const SettingsStackScreen = () => {
+  return (
+    <SettingStack.Navigator>
+      <SettingStack.Screen
+          name="Setting"
+          component={SettingsScreen}
+      />
+    </SettingStack.Navigator>
+  )
+}
+
 const FeedStack = createStackNavigator();
-const FeedStackScreen = () => {
+const FeedStackScreen = ({ navigation }) => {
+  const signOut = useStoreActions((action) => action.signOut);
+  const handleSignOut = () => {
+    signOut();
+  }
   return (
     <FeedStack.Navigator>
       <FeedStack.Screen
           name={"Feed"}
           component={FeedScreen}
+          options={{
+            title: "The Chef's Daily Meals",
+            headerLeft : () => {
+              return (
+                <TouchableOpacity 
+                  style={{
+                    paddingHorizontal: 10
+                  }}
+                  onPress={() => navigation.toggleDrawer()}
+                >
+                  <Ionicons
+                      name="ios-menu"
+                      size={40}
+                      color={"#000"}
+                  />
+                </TouchableOpacity>
+              )
+            },
+            headerRight : () => {
+              return (
+                <TouchableOpacity 
+                  style={{
+                    paddingHorizontal: 10
+                  }}
+                  onPress={() => handleSignOut()}
+                >
+                  <Ionicons
+                      name="ios-redo"
+                      size={40}
+                      color={"#000"}
+                  />
+                </TouchableOpacity>
+              )
+            },
+          }}
       />
       <FeedStack.Screen
           name={"Details"}
@@ -52,7 +104,7 @@ const TabsScreen = () => {
       />
       <TabStack.Screen
           name={"Settings"}
-          component={SettingsScreen}
+          component={SettingsStackScreen}
       />
       <TabStack.Screen
           name={"Profile"}
