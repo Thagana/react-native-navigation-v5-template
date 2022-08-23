@@ -24,7 +24,7 @@ Follow the instruction properly, so that the app/project will run correctly
 
 ### Install Dependency
 ```bash
-	$ cd react-native-navigation-v5-template
+	$ cd react-native-navigation-v5-template && npm i
 ```
 ### Install Native Dependency for ios using cocopods
 ```bash
